@@ -1,0 +1,48 @@
+timestamp 1542631488
+version 8.0
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+node "a_56_11#" 53 0 56 11 ndiff 32 24 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_84_34#" 60 0 84 34 pdiff 0 0 64 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "Vout" 1414 33934 2 1 ndc 264 236 64 32 0 0 0 0 0 0 0 0 1018 418 0 0 0 0
+equiv "Vout" "GND"
+node "a_28_34#" 60 0 28 34 pdiff 0 0 64 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "Vin1" 619 8490 81 -7 pc 0 0 0 0 112 112 0 0 0 0 0 0 16 16 0 0 0 0
+node "and2" 563 10822 64 9 p 32 24 48 28 88 84 0 0 0 0 0 0 244 130 0 0 0 0
+node "and1" 563 10390 28 11 ndiff 32 24 48 28 88 84 0 0 0 0 0 0 204 110 0 0 0 0
+node "Vin0" 619 8490 35 -7 pc 0 0 0 0 112 112 0 0 0 0 0 0 16 16 0 0 0 0
+node "snot" 561 9124 10 11 ndiff 24 20 48 28 90 86 0 0 0 0 0 0 164 90 0 0 0 0
+node "VDD" 2133 11938 2 34 pdc 0 0 320 220 0 0 0 0 0 0 0 0 872 346 0 0 0 0
+node "Vselk" 2278 34674 1 56 pc 0 0 0 0 390 390 0 0 0 0 0 0 16 16 0 0 0 0
+node "w_n3_28#" 12187 0 -3 28 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2354 258
+cap "Vin1" "Vout" 360
+cap "snot" "w_n3_28#" 3750
+cap "and2" "w_n3_28#" 4822
+cap "Vin1" "w_n3_28#" 2622
+cap "VDD" "w_n3_28#" 16638
+cap "Vselk" "and2" 240
+cap "Vout" "w_n3_28#" 1128
+cap "Vselk" "VDD" 720
+cap "Vout" "Vin0" 360
+cap "and1" "w_n3_28#" 3750
+cap "and1" "Vin0" 240
+cap "Vin1" "and2" 240
+cap "w_n3_28#" "Vin0" 2622
+cap "Vselk" "w_n3_28#" 7304
+cap "and2" "Vout" 240
+device mosfet nfet 92 11 93 12 2 4 "Gnd!" "Vselk" 4 0 "and2" 4 0 "Vout" 4 0
+device mosfet nfet 82 11 83 12 2 4 "Gnd!" "Vin1" 4 0 "Vout" 4 0 "and2" 4 0
+device mosfet nfet 64 11 65 12 2 4 "Gnd!" "and2" 4 0 "a_56_11#" 4 0 "Vout" 4 0
+device mosfet nfet 54 11 55 12 2 4 "Gnd!" "and1" 4 0 "Vout" 4 0 "a_56_11#" 4 0
+device mosfet nfet 36 11 37 12 2 4 "Gnd!" "Vin0" 4 0 "and1" 4 0 "Vout" 4 0
+device mosfet nfet 26 11 27 12 2 4 "Gnd!" "snot" 4 0 "Vout" 4 0 "and1" 4 0
+device mosfet nfet 8 11 9 12 2 4 "Gnd!" "Vselk" 4 0 "Vout" 4 0 "snot" 4 0
+device mosfet pfet 92 34 93 35 2 8 "w_n3_28#" "Vselk" 4 0 "a_84_34#" 8 0 "and2" 8 0
+device mosfet pfet 82 34 83 35 2 8 "w_n3_28#" "Vin1" 4 0 "VDD" 8 0 "a_84_34#" 8 0
+device mosfet pfet 64 34 65 35 2 8 "w_n3_28#" "and2" 4 0 "Vout" 8 0 "VDD" 8 0
+device mosfet pfet 54 34 55 35 2 8 "w_n3_28#" "and1" 4 0 "VDD" 8 0 "Vout" 8 0
+device mosfet pfet 36 34 37 35 2 8 "w_n3_28#" "Vin0" 4 0 "a_28_34#" 8 0 "and1" 8 0
+device mosfet pfet 26 34 27 35 2 8 "w_n3_28#" "snot" 4 0 "VDD" 8 0 "a_28_34#" 8 0
+device mosfet pfet 8 34 9 35 2 8 "w_n3_28#" "Vselk" 4 0 "VDD" 8 0 "snot" 8 0

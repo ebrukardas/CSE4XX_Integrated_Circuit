@@ -1,0 +1,55 @@
+timestamp 0
+version 8.0
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+node "a_56_12#" 53 0 56 12 ndiff 32 24 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "GND" 1244 29234 2 1 ndc 240 216 0 0 0 0 0 0 0 0 0 0 838 328 0 0 0 0
+equiv "GND" "GND"
+equiv "GND" "GND"
+equiv "GND" "GND"
+node "a_84_34#" 60 0 84 34 pdiff 0 0 64 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_28_34#" 60 0 28 34 pdiff 0 0 64 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "D1" 619 8490 81 -7 pc 0 0 0 0 112 112 0 0 0 0 0 0 16 16 0 0 0 0
+node "OUTPUT" 960 14192 56 34 pdiff 56 44 112 60 104 92 0 0 0 0 0 0 400 208 0 0 0 0
+equiv "OUTPUT" "Vout"
+equiv "OUTPUT" "Vout"
+node "Vout" 563 11142 28 11 ndiff 32 24 48 28 88 84 0 0 0 0 0 0 244 130 0 0 0 0
+node "D0" 619 8490 35 -7 pc 0 0 0 0 112 112 0 0 0 0 0 0 16 16 0 0 0 0
+node "sel_not" 561 9124 10 11 ndiff 24 20 48 28 90 86 0 0 0 0 0 0 164 90 0 0 0 0
+equiv "sel_not" "Vout"
+node "VDD" 1919 12596 2 34 pdc 0 0 304 204 0 0 0 0 0 0 0 0 872 346 0 0 0 0
+equiv "VDD" "VDD"
+equiv "VDD" "VDD"
+equiv "VDD" "VDD"
+node "select" 2733 46012 -6 19 pc 0 0 0 0 482 474 0 0 0 0 0 0 32 32 0 0 0 0
+equiv "select" "select"
+node "w_0_28#" 11618 0 0 28 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2244 248
+cap "w_0_28#" "Vout" 4502
+cap "D1" "GND" 360
+cap "select" "VDD" 360
+cap "w_0_28#" "OUTPUT" 6664
+cap "w_0_28#" "D1" 2622
+cap "sel_not" "w_0_28#" 3750
+cap "select" "OUTPUT" 240
+cap "D0" "GND" 360
+cap "D0" "w_0_28#" 2622
+cap "OUTPUT" "D1" 240
+cap "w_0_28#" "select" 6274
+cap "D0" "Vout" 480
+cap "w_0_28#" "VDD" 17296
+device mosfet nfet 92 11 93 12 2 4 "Gnd!" "select" 4 0 "OUTPUT" 4 0 "GND" 4 0
+device mosfet nfet 82 11 83 12 2 4 "Gnd!" "D1" 4 0 "GND" 4 0 "OUTPUT" 4 0
+device mosfet nfet 64 12 65 13 2 4 "Gnd!" "OUTPUT" 4 0 "a_56_12#" 4 0 "OUTPUT" 4 0
+device mosfet nfet 54 12 55 13 2 4 "Gnd!" "Vout" 4 0 "GND" 4 0 "a_56_12#" 4 0
+device mosfet nfet 36 11 37 12 2 4 "Gnd!" "D0" 4 0 "Vout" 4 0 "GND" 4 0
+device mosfet nfet 26 11 27 12 2 4 "Gnd!" "sel_not" 4 0 "GND" 4 0 "Vout" 4 0
+device mosfet nfet 8 11 9 12 2 4 "Gnd!" "select" 4 0 "GND" 4 0 "sel_not" 4 0
+device mosfet pfet 92 34 93 35 2 8 "w_0_28#" "select" 4 0 "a_84_34#" 8 0 "OUTPUT" 8 0
+device mosfet pfet 82 34 83 35 2 8 "w_0_28#" "D1" 4 0 "VDD" 8 0 "a_84_34#" 8 0
+device mosfet pfet 64 34 65 35 2 8 "w_0_28#" "OUTPUT" 4 0 "OUTPUT" 8 0 "VDD" 8 0
+device mosfet pfet 54 34 55 35 2 8 "w_0_28#" "Vout" 4 0 "VDD" 8 0 "OUTPUT" 8 0
+device mosfet pfet 36 34 37 35 2 8 "w_0_28#" "D0" 4 0 "a_28_34#" 8 0 "Vout" 8 0
+device mosfet pfet 26 34 27 35 2 8 "w_0_28#" "sel_not" 4 0 "VDD" 8 0 "a_28_34#" 8 0
+device mosfet pfet 8 34 9 35 2 8 "w_0_28#" "select" 4 0 "VDD" 8 0 "sel_not" 8 0

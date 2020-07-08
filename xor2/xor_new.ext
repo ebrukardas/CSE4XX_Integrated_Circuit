@@ -1,0 +1,45 @@
+timestamp 1541793055
+version 8.0
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+node "a_n31_n32#" 412 10528 -31 -32 ndc 116 90 0 0 0 0 0 0 0 0 0 0 384 200 0 0 0 0
+node "GND" 601 41454 -57 -51 ndc 128 112 0 0 0 0 0 0 0 0 0 0 994 402 0 0 0 0
+node "a_9_n13#" 60 0 9 -13 pdiff 0 0 64 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "Vout" 203 7332 -13 -13 pdiff 32 24 160 56 0 0 0 0 0 0 0 0 244 130 0 0 0 0
+node "a_n23_n13#" 60 0 -23 -13 pdiff 0 0 64 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "VinB" 1300 16582 17 -40 p 0 0 0 0 234 230 0 0 0 0 0 0 16 16 0 0 0 0
+node "a_n49_n32#" 1384 22786 -49 -32 ndiff 24 20 48 28 224 222 0 0 0 0 0 0 112 64 0 0 0 0
+node "a_n15_n35#" 1635 21290 -15 -35 p 24 20 48 28 262 262 0 0 0 0 0 0 124 70 0 0 0 0
+node "VDD" 1682 12455 -57 -13 pdc 0 0 256 176 0 0 0 0 0 0 0 0 878 342 0 0 0 0
+node "VinA" 1420 17694 -55 -24 pc 0 0 0 0 254 250 0 0 0 0 0 0 16 16 0 0 0 0
+equiv "VinA" "VinA"
+node "w_n62_n19#" 12311 0 -62 -19 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2599 272
+cap "VDD" "VinA" 720
+cap "VDD" "w_n62_n19#" 16967
+cap "w_n62_n19#" "Vout" 1128
+cap "w_n62_n19#" "a_n15_n35#" 10492
+cap "VDD" "a_n15_n35#" 720
+cap "VinA" "GND" 240
+cap "VinB" "a_n31_n32#" 480
+cap "a_n49_n32#" "w_n62_n19#" 3750
+cap "a_n49_n32#" "Vout" 240
+cap "w_n62_n19#" "VinB" 6512
+cap "a_n49_n32#" "GND" 240
+cap "VinA" "w_n62_n19#" 7780
+cap "VDD" "VinB" 360
+cap "a_n49_n32#" "a_n31_n32#" 2400
+cap "VinB" "Vout" 240
+device mosfet nfet 40 -32 41 -31 2 4 "Gnd!" "VinB" 4 0 "a_n15_n35#" 4 0 "GND" 4 0
+device mosfet nfet 17 -32 18 -31 2 4 "Gnd!" "VinB" 4 0 "Vout" 4 0 "a_n31_n32#" 4 0
+device mosfet nfet 7 -32 8 -31 2 4 "Gnd!" "a_n49_n32#" 4 0 "a_n31_n32#" 4 0 "Vout" 4 0
+device mosfet nfet -15 -32 -14 -31 2 4 "Gnd!" "a_n15_n35#" 4 0 "GND" 4 0 "a_n31_n32#" 4 0
+device mosfet nfet -25 -32 -24 -31 2 4 "Gnd!" "VinA" 4 0 "a_n31_n32#" 4 0 "GND" 4 0
+device mosfet pfet 40 -13 41 -12 2 8 "w_n62_n19#" "VinB" 4 0 "a_n15_n35#" 8 0 "VDD" 8 0
+device mosfet nfet -51 -32 -50 -31 2 4 "Gnd!" "VinA" 4 0 "GND" 4 0 "a_n49_n32#" 4 0
+device mosfet pfet 17 -13 18 -12 2 8 "w_n62_n19#" "VinB" 4 0 "a_9_n13#" 8 0 "VDD" 8 0
+device mosfet pfet 7 -13 8 -12 2 8 "w_n62_n19#" "a_n49_n32#" 4 0 "Vout" 8 0 "a_9_n13#" 8 0
+device mosfet pfet -15 -13 -14 -12 2 8 "w_n62_n19#" "a_n15_n35#" 4 0 "a_n23_n13#" 8 0 "Vout" 8 0
+device mosfet pfet -25 -13 -24 -12 2 8 "w_n62_n19#" "VinA" 4 0 "VDD" 8 0 "a_n23_n13#" 8 0
+device mosfet pfet -51 -13 -50 -12 2 8 "w_n62_n19#" "VinA" 4 0 "VDD" 8 0 "a_n49_n32#" 8 0

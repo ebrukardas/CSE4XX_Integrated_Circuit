@@ -1,0 +1,56 @@
+* SPICE3 file created from nand_8.ext - technology: scmos
+
+.option scale=0.12u
+
+M1000 Vout VinA VDD w_n32_n23# pmos w=8 l=2
++  ad=64 pd=32 as=112 ps=72
+M1001 VDD VinB Vout w_n32_n23# pmos w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1002 a_n22_n40# VinA GND Gnd nmos w=4 l=2
++  ad=32 pd=24 as=40 ps=36
+M1003 Vout VinB a_n22_n40# Gnd nmos w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+C0 w_n32_n23# Vout 1.9fF
+C1 VinB Vout 0.2fF
+C2 w_n32_n23# VDD 5.5fF
+C3 w_n32_n23# VinA 2.6fF
+C4 w_n32_n23# VinB 2.6fF
+C5 Vout Gnd 3.2fF
+C6 VinB Gnd 5.6fF
+C7 VinA Gnd 5.6fF
+C8 VDD Gnd 3.6fF
+
+
+*
+* INDEPENDANT VOLTAGE SOURCE
+*
+*Vname +NODE -NODE VALUE
+*----- ----- ----- -----
+VCC    Vdd     0     DC=2.5
+
+
+* The following two lines are for TRANSIENT analysis
+*
+*Vname +Node -Node Option T1  V1   T2   V2   T3   V3   T4    V4    T5   V5    T5   V5     T5   V5     T5   V5 
+*----- ----- ----- ------ --  --   ---  --   ---- --   ---   --    ---- --    ----  --    ----  --    ----  -- 
+VinA   VinA   0    PWL(    0  0    3.9N  0   4N  2.5   7.9N  2.5   8N   0     11.9N  0     12N  2.5   15.9N  2.5  ) 
+VinB   VinB   0    PWL(    0  0    3.9N  0   4N  0	   7.9N  0     8N   2.5   11.9N  2.5   12N  2.5   15.9N  2.5 )
+
+*     TSTEP TSTOP
+*     ----- -----
+.TRAN 0.1N  20.2N
+
+
+* The following line is for DC analysis
+
+.DC VINa 0 2.6 0.1
+
+* TEMPERATURE and OPTIONS SETTING
+
+.OPTIONS TEMP=25 reltol = 1e-6 
+
+*MODELS
+
+.include tsmc_cmos025
+
+.END

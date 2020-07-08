@@ -1,0 +1,84 @@
+* SPICE3 file created from xor_new.ext - technology: scmos
+
+.option scale=0.12u
+
+M1000 a_n49_n32# VinA VDD Vdd pmos w=8 l=2
++  ad=48 pd=28 as=256 ps=176
+M1001 a_n23_n13# VinA VDD Vdd pmos w=8 l=2
++  ad=64 pd=32 as=0 ps=0
+M1002 Vout a_n15_n35# a_n23_n13# Vdd pmos w=8 l=2
++  ad=160 pd=56 as=0 ps=0
+M1003 a_9_n13# a_n49_n32# Vout Vdd pmos w=8 l=2
++  ad=64 pd=32 as=0 ps=0
+M1004 VDD VinB a_9_n13# Vdd pmos w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 a_n49_n32# VinA GND Gnd nmos w=4 l=2
++  ad=24 pd=20 as=128 ps=112
+M1006 VDD VinB a_n15_n35# Vdd pmos w=8 l=2
++  ad=0 pd=0 as=48 ps=28
+M1007 GND VinA a_n31_n32# Gnd nmos w=4 l=2
++  ad=0 pd=0 as=116 ps=90
+M1008 a_n31_n32# a_n15_n35# GND Gnd nmos w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 Vout a_n49_n32# a_n31_n32# Gnd nmos w=4 l=2
++  ad=32 pd=24 as=0 ps=0
+M1010 a_n31_n32# VinB Vout Gnd nmos w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 GND VinB a_n15_n35# Gnd nmos w=4 l=2
++  ad=0 pd=0 as=24 ps=20
+C0 a_n49_n32# Vout 0.2fF
+C1 Vdd VinA 7.8fF
+C2 VinB Vout 0.2fF
+C3 Vdd VDD 17.0fF
+C4 VinA VDD 0.7fF
+C5 Vdd a_n15_n35# 10.5fF
+C6 a_n49_n32# a_n31_n32# 2.4fF
+C7 Vdd a_n49_n32# 3.8fF
+C8 VinB a_n31_n32# 0.5fF
+C9 VDD a_n15_n35# 0.7fF
+C10 Vdd VinB 6.5fF
+C11 Vdd Vout 1.1fF
+C12 VDD VinB 0.4fF
+C13 a_n31_n32# Gnd 10.5fF
+C14 Vout Gnd 7.3fF
+C15 VinB Gnd 16.6fF
+C16 a_n49_n32# Gnd 23.0fF
+C17 a_n15_n35# Gnd 21.3fF
+C18 VDD Gnd 12.5fF
+C19 VinA Gnd 17.9fF
+
+
+
+*
+* INDEPENDANT VOLTAGE SOURCE
+*
+*Vname +NODE -NODE VALUE
+*----- ----- ----- -----
+VCC    Vdd     0     DC=2.5
+
+
+* The following two lines are for TRANSIENT analysis
+*
+*Vname +Node -Node Option T1  V1   T2   V2   T3   V3   T4    V4    T5   V5    T5   V5     T5   V5     T5   V5 
+*----- ----- ----- ------ --  --   ---  --   ---- --   ---   --    ---- --    ----  --    ----  --    ----  -- 
+VinA   VinA   0    PWL(    0  0    3.9N  0   4N  2.5   7.9N  2.5   8N   0     11.9N  0     12N  2.5   15.9N  2.5  ) 
+VinB   VinB   0    PWL(    0  0    3.9N  0   4N  0	   7.9N  0     8N   2.5   11.9N  2.5   12N  2.5   15.9N  2.5 )
+
+*     TSTEP TSTOP
+*     ----- -----
+.TRAN 0.1N  20.2N
+
+
+* The following line is for DC analysis
+
+.DC VINa 0 2.6 0.1
+
+* TEMPERATURE and OPTIONS SETTING
+
+.OPTIONS TEMP=25 reltol = 1e-6 
+
+*MODELS
+
+.include tsmc_cmos025
+
+.END
